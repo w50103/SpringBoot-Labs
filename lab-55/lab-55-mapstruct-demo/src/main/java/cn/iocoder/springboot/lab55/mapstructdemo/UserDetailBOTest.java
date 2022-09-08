@@ -12,7 +12,7 @@ public class UserDetailBOTest {
                 .setId(1).setUsername("yudaoyuanma").setPassword("buzhidao");
         // 进行转换
         UserDetailBO userDetailBO = UserConvert.INSTANCE.convertDetail(userDO);
-        System.out.println(userDetailBO.getUserId());
+        System.out.println(userDetailBO.getName());
     }
 
 }

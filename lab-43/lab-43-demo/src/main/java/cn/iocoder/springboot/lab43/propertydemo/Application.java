@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Field;
+
 @SpringBootApplication
 public class Application {
 
@@ -24,10 +26,20 @@ public class Application {
         @Autowired
         private OrderProperties orderProperties;
 
+        @Autowired
+        private MyConfigProperties myConfigProperties;
+
         @Override
         public void run(String... args) {
             logger.info("payTimeoutSeconds:" + orderProperties.getPayTimeoutSeconds());
             logger.info("createFrequencySeconds:" + orderProperties.getCreateFrequencySeconds());
+            logger.info("boy+" + myConfigProperties.getBoy());
+
+
+            for (Field field:myConfigProperties.getClass().getDeclaredFields()
+                 ) {
+                logger.info(field.getName() + "===" + field.getType() + "===" );
+            }
         }
 
     }

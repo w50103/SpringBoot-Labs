@@ -16,7 +16,8 @@ public interface UserConvert {
     UserBO convert(UserDO userDO);
 
     @Mappings({
-            @Mapping(source = "id", target = "userId")
+            @Mapping(source = "id", target = "userId"),
+            @Mapping(source = "", target = "")
     })
     UserDetailBO convertDetail(UserDO userDO);
 
